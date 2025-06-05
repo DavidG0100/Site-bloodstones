@@ -7,7 +7,6 @@ import ImagemSombra from "../assets/img/Image-sombras.png";
 export default function Historia() {
   return (
     <Layout>
-      {/* Hero Section */}
       <section
         className="relative pt-[2rem] pb-[12rem] px-4 text-white text-center h-screen flex flex-col justify-center"
         style={{
@@ -23,27 +22,21 @@ export default function Historia() {
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent"></div>
 
         <div className="relative z-10" style={{ marginTop: "-200px" }}>
-          {/* Título responsivo */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-shadow-lg transition-all duration-300">
             História
           </h1>
         </div>
       </section>
 
-      {/* Conteúdo Principal */}
       <div className="max-w-6xl mx-auto relative" style={{ marginTop: "-400px", zIndex: 10 }}>
         <main className="pt-16 pb-16 min-h-screen text-white px-4 sm:px-6 lg:px-8">
           
-          {/* Seção ASCENSÃO */}
           <section className="mb-16">
             <h2 className="text-yellow-500 text-xl sm:text-2xl font-bold mb-4 drop-shadow-lg">
               ASCENSÃO
             </h2>
-            
-            {/* Layout responsivo - Mobile: imagem acima, Desktop: lado a lado */}
+
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center">
-              
-              {/* Imagem - aparece primeiro no mobile */}
               <div className="w-full lg:w-1/2 order-1 lg:order-2">
                 <img
                   src={ascensaoImg}
@@ -51,8 +44,7 @@ export default function Historia() {
                   className="w-full max-w-lg h-auto rounded-lg shadow mx-auto"
                 />
               </div>
-              
-              {/* Texto - aparece depois no mobile */}
+
               <div className="w-full lg:w-1/2 order-2 lg:order-1">
                 <p className="drop-shadow-md text-sm sm:text-base lg:text-lg leading-relaxed">
                   Há muitas primaveras, tantas que mal se pode recordar, existiu uma civilização rica em ouro e arte.
@@ -70,7 +62,6 @@ export default function Historia() {
             </div>
           </section>
 
-          {/* Seção A QUEDA */}
           <section className="mb-16">
             <h2 className="text-yellow-500 text-xl sm:text-2xl font-bold mb-4 drop-shadow-lg">
               A QUEDA
@@ -79,7 +70,6 @@ export default function Historia() {
             {/* Layout responsivo - mantém ordem original */}
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center">
               
-              {/* Imagem */}
               <div className="w-full lg:w-1/2">
                 <img 
                   src={KurobaImg} 
@@ -88,7 +78,6 @@ export default function Historia() {
                 />
               </div>
               
-              {/* Texto */}
               <div className="w-full lg:w-1/2">
                 <p className="drop-shadow-md text-sm sm:text-base lg:text-lg leading-relaxed">
                   A mesma ânsia pelo título de salvador que movia Kuroba o corrompeu, e a busca pelo poder logo se tornou

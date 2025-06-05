@@ -14,7 +14,6 @@ export default function Header() {
     setIsMenuOpen(false);
   };
 
-  // Função para checar se a rota está ativa
   const isActive = (path) => location.pathname === path;
 
   return (
@@ -50,12 +49,11 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* Mobile Header */}
+      {/* Header menor */}
       <div className="md:hidden flex items-center justify-between px-6 py-4">
         {/* Logo Mobile */}
         <img src={logo} alt="Bloodstone Logo" className="h-12" />
 
-        {/* Hamburger Button */}
         <button
           onClick={toggleMenu}
           className="text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 rounded-md p-2"
@@ -81,7 +79,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Menu Dropdown */}
       <div
         className={`md:hidden bg-gradient-to-b from-black to-gray-900 border-t border-yellow-600/30 transition-all duration-300 ease-in-out overflow-hidden relative z-50 ${
           isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
@@ -124,7 +122,6 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* Overlay para fechar menu quando clicar fora */}
       {isMenuOpen && (
         <div
           className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-30"

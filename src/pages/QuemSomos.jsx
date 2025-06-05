@@ -12,7 +12,6 @@ export default function QuemSomos() {
   return (
     <Layout>
       <main className="pt-1 pb-24 bg-black from-black via-gray-900 to-black min-h-screen text-white w-full">
-        {/*Container*/}
         <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           
           <div className="text-center mt-8 mb-8 sm:mb-12 lg:mb-16">

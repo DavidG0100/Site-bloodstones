@@ -73,7 +73,6 @@ export default function SignupModal({ isOpen, onClose }) {
         {/* Decorative border effect */}
         <div className="absolute inset-0 bg-gradient-to-r from-yellow-600/20 to-red-600/20 pointer-events-none"></div>
         
-        {/* Header do Modal */}
         <div className="flex justify-between items-center p-6 border-b border-yellow-600/30 relative z-10">
           <h3 className="text-xl font-bold text-yellow-400 tracking-wide">
             {isSubmitted ? '⚔️ GUERREIRO REGISTRADO!' : '⚔️ JUNTE-SE À BATALHA'}
@@ -86,7 +85,6 @@ export default function SignupModal({ isOpen, onClose }) {
           </button>
         </div>
 
-        {/* Conteúdo do Modal */}
         <div className="p-6 relative z-10">
           {!isSubmitted ? (
             <form onSubmit={handleSubmit} className="space-y-4">

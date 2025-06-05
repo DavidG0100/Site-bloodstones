@@ -15,7 +15,6 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* Seção com imagem de fundo - Mais alta com efeito esfumaçado */}
       <section
         className="relative pt-[8rem] pb-[16rem] px-4 text-white text-center min-h-screen flex flex-col justify-center"
         style={{
@@ -24,14 +23,10 @@ export default function Home() {
           backgroundPosition: "center",
         }}
       >
-        {/* Overlay escuro para dar contraste */}
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-        
-        {/* Efeito esfumaçado nas bordas horizontais */}
         <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent"></div>
         
-        {/* Conteúdo */}
         <div className="relative z-20 flex flex-col items-center justify-center flex-1">
           <h1 className="text-4xl md:text-6xl font-bold mb-12 text-shadow-lg">UM MMORPG ÉPICO</h1>
           
@@ -44,7 +39,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Seção abaixo da imagem de fundo */}
       <section className="bg-black text-center px-4 pb-24 pt-16">
         <div className="flex justify-center mt-6 mb-10">
           <div className="w-full max-w-2xl aspect-video">
@@ -63,7 +57,6 @@ export default function Home() {
           CONHEÇA UM POUCO DO QUE VAI JOGAR
         </h2>
 
-        {/* Cards com mais margem das bordas */}
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-8 md:px-16 lg:px-20">
             <AttackCard
@@ -85,7 +78,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Modal de Cadastro */}
       <SignupModal isOpen={isModalOpen} onClose={closeModal} />
     </Layout>
   );

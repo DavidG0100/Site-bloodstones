@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
+const bcrypt = require('bcrypt');
 const mysql = require('mysql2/promise');
 require('dotenv').config();
 
+const SALT_ROUNDS = 10;
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -22,21 +24,34 @@ app.use(express.json());
 
 app.post('/api/cadastro', async (req, res) => {
   try {
-    const { nome, email, telefone } = req.body;
+    const { nome, email, telefone, senha } = req.body;
+
+    if (!senha || senha.length < 6) {
+      return res.status(400).json({
+        success: false,
+        message: 'A senha deve ter pelo menos 6 caracteres.'
+      });
+    }
+
+    // hash da senha
+    const hashedPassword = await bcrypt.hash(senha, SALT_ROUNDS);
+
     const [result] = await pool.execute(
-      'INSERT INTO usuarios (nome, email, telefone) VALUES (?, ?, ?)',
-      [nome, email, telefone]
+      'INSERT INTO usuarios (nome, email, telefone, senha) VALUES (?, ?, ?, ?)',
+      [nome, email, telefone, hashedPassword]
     );
+
     const [user] = await pool.execute(
-      'SELECT * FROM usuarios WHERE id = ?',
+      'SELECT id, nome, email, telefone, created_at FROM usuarios WHERE id = ?',
       [result.insertId]
     );
+
     res.json({
       success: true,
       message: `Bem-vindo à guilda, ${nome}!`,
       usuario: user[0]
     });
-    
+
   } catch (error) {
     console.error('Erro:', error);
     if (error.code === 'ER_DUP_ENTRY') {
@@ -45,7 +60,7 @@ app.post('/api/cadastro', async (req, res) => {
         message: 'Este email já está cadastrado!'
       });
     }
-    
+
     res.status(500).json({
       success: false,
       message: 'Erro ao cadastrar usuário'
